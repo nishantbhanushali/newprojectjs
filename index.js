@@ -12,9 +12,6 @@ let loyaltyRate = 2;
 // 1
 
 app.get("/cart-total", (req, res) => {
-    // let productOne = parseFloat(req.query.productOne);
-    // let productTwo = parseFloat(req.query.productTwo);
-    // let productThree = parseFloat(req.query.productThree
     let newItemPrice = parseFloat(req.query.newItemPrice);
     let cartTotal = parseFloat(req.query.cartTotal);
     let totalCartPrice = newItemPrice + cartTotal;
@@ -24,12 +21,12 @@ app.get("/cart-total", (req, res) => {
 // 2
 
 app.get("/membership-discount", (req, res) => {
-    let totalCart = parseFloat(req.query.totalCart);
+    let cartTotal = parseFloat(req.query.cartTotal);
     let isMember = req.query.isMember === "true";
     if (isMember) {
-        totalCart = totalCart * (10 / 100);
+        cartTotal = cartTotal * (10 / 100);
     }
-    res.send(totalCart.toString());
+    res.send(cartTotal.toString());
 });
 
 // 3;
@@ -41,9 +38,9 @@ app.get("/calculate-tax", (req, res) => {
 
 // 4
 app.get("/estimate-delivery", (req, res) => {
-    let shippedMethod = req.query.shippedMethod;
+    let shippingMethod = req.query.shippingMethod;
     distance = parseFloat(req.query.distance);
-    if (shippedMethod == "standard") {
+    if (shippingMethod == "standard") {
         distance = distance / 50;
     } else {
         distance = distance / 100;
