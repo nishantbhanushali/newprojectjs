@@ -45,7 +45,7 @@ app.get("/estimate-delivery", (req, res) => {
     } else {
         distance = distance / 100;
     }
-    res.send(`estimated delivery days are ${distance}`);
+    res.send(` ${distance}`);
 });
 
 // 5
@@ -55,15 +55,15 @@ app.get("/shipping-cost", (req, res) => {
     let distance = parseFloat(req.query.distance);
     let shippingCost = weight * 2 * distance * 0.1;
 
-    res.send(`the shipping cost will be ${shippingCost} $`);
+    res.send(` ${shippingCost} $`);
 });
-
+s
 // 6
 
 app.get("/loyalty-points", (req, res) => {
     let purchaseAmount = parseFloat(req.query.purchaseAmount);
     let points = purchaseAmount * 2;
-    res.send(`your loyalty points are ${points}`);
+    res.send(` ${points}`);
 });
 
 app.listen(3000);
